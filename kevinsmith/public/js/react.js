@@ -4,7 +4,8 @@ var Users = React.createClass({
         return {
             name: "",
             crud: "",
-            id: ""
+            id: "",
+            data: []
         };
     },
 
@@ -21,13 +22,17 @@ var Users = React.createClass({
         console.log("GET!");
         $.ajax({
               method: "GET",
-              url: "/users/57190de1adbf077e17d2eb80",
+              url: "/users",
               cache: false
             })
           .done((msg) => {
             var myname = msg.name;
-            console.dir(msg);
-            this.setState({name:myname});
+            console.dir(msg.data);
+            var dataArray = [];
+            msg.data.forEach(function(elem) {
+                dataArray.push(elem.name)
+            })
+            this.setState({data:dataArray});
             this.setState({crud:"GET"});
           });
     },
@@ -70,6 +75,7 @@ var Users = React.createClass({
                     <button onClick={this.clearCrud}
                             className="btn btn-primary">OK</button>
                 </span>
+                <p> {this.state.data} </p>
             </div>
         )
     },
