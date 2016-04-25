@@ -1,0 +1,20 @@
+{
+  "name": "Use-a-Different-Client-Side-Framework",
+  "version": "1.0.0",
+  "description": "React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kamil333s/Use-a-Different-Client-Side-Framework.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kamil333s/Use-a-Different-Client-Side-Framework/issues"
+  },
+  "homepage": "https://github.com/kamil333s/Use-a-Different-Client-Side-Framework#readme"
+}
