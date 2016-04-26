@@ -5,7 +5,9 @@ var Users = React.createClass({
             name: "",
             crud: "",
             id: "",
-            data: []
+            data: [],
+            epr: ""
+
         };
     },
 
@@ -70,7 +72,7 @@ var Users = React.createClass({
     renderGet: function() {
         return(
             <div className="note">
-                <h1>Hello, {this.state.name}. I got your name from MongoDB </h1>
+                <h1>Hello, {this.state.name}. I got your name from MongoDB. </h1>
                 <span>
                     <button onClick={this.clearCrud}
                             className="btn btn-primary">OK</button>
@@ -81,13 +83,13 @@ var Users = React.createClass({
     },
 
     renderPut: function() {
-        return(
+        this.setState({expr: '{"name":' + {this.state.name} + '}'});
+        return (
             <div className="note">
-                <h1>Hello, {this.state.name}. I got your name from MongoDB </h1>
-                <span>
-                    <button onClick={this.clearCrud}
-                            className="btn btn-primary">OK</button>
-                </span>
+            <textarea ref="newText"  
+            className="form-control">{this.expr}</textarea>
+            <button onClick={this.postSave} className="btn btn-success btn-sm glyphicon glyphicon-floppy-disk" />
+            <button onClick={this.clearCrud} className="btn btn-danger btn-sm glyphicon glyphicon-trash" />
             </div>
         )
     },
@@ -98,7 +100,7 @@ var Users = React.createClass({
             <textarea ref="newText" defaultValue='{"name":"placeholder", "password":"placeholder"}' 
             className="form-control"></textarea>
             <button onClick={this.postSave} className="btn btn-success btn-sm glyphicon glyphicon-floppy-disk" />
-            <button onClick={this.render} className="btn btn-success btn-sm glyphicon glyphicon-floppy-disk" />
+            <button onClick={this.clearCrud} className="btn btn-danger btn-sm glyphicon glyphicon-trash" />
             </div>
         )
     },
@@ -124,9 +126,9 @@ var Users = React.createClass({
                             className="btn btn-primary glyphicon glyphicon-plus"/>
                     <button onClick={this.Get}
                             className="btn btn-success glyphicon glyphicon-asterisk"/>
-                    <button onClick={this.renderPut}
+                    <button onClick={this.Put}
                             className="btn btn-warning glyphicon glyphicon-pencil"/>
-                    <button onClick={this.renderDelete}
+                    <button onClick={this.Delete}
                             className="btn btn-danger glyphicon glyphicon-trash"/>
                 </span>
             </div>
